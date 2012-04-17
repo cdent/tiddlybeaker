@@ -1,0 +1,20 @@
+Like Flask, but with tiddlers and TiddlyWeb.
+
+Maybe a joke, maybe not.
+
+tiddlybeaker/__init__.py contains the basics for supporting
+stubapp.py, a simple web app which servers content from
+http://0.0.0.0:8080/carp when you run python stubapp.py.
+
+The exploration thus far has uncovered why frameworks like Flask do things
+like the Werkzeug "Context Locals" (see http://werkzeug.pocoo.org/docs/local/):
+without them you need to constantly passing around a context variable, like
+environ, which means boilerplate, which these framework things are supposed
+to eschew.
+
+Since I didn't feel like writing a context manager, our handlers temporarily
+accept a 'b' variable, which reference a Request object.
+
+This is not meant for consumption, unless your feeling feckless.
+
+Chris Dent <cdent@peermore.com>
